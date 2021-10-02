@@ -5,6 +5,10 @@
 	<title>연습</title>
 	<style>
 
+	html, body {width:100%;height:100%;margin:0;padding:0;overflow: hidden} 
+
+	.map_wrap {position:relative;overflow:hidden;width:100%;height:350px;}
+
 	.radius_border{border:1px solid #919191;border-radius:5px;}     
 
 	.custom_typecontrol {position:absolute;bottom:32px;left:20px;overflow:hidden;width:130px;height:25px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
@@ -16,7 +20,7 @@
 	.custom_typecontrol .selected_btn:hover {color:#fff;}   
 
 
-	#container {overflow:hidden;height:50%;position:relative;}
+	#container {overflow:hidden;height:100%;position:relative;}
 	#mapWrapper {width:100%;height:100vh;z-index:1;}
 	#gps {position:absolute;bottom:20px;left:160px;width:42px;height:42px;z-index: 1;cursor: pointer; background: url(https://t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) -145px -450px no-repeat;}
 	#gps.active {background-position:-145px -350px;}
@@ -49,10 +53,12 @@
 			{ 
 				//  go(); // 모바일 
 				is_mobile = true
+				alert(UserAgent);
 			} 
 			else 
 			{ 
 				is_mobile = false;
+
 			} 
 
 			
