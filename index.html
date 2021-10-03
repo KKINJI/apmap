@@ -162,7 +162,7 @@
         };
 
 
-		var marker1;
+		var marker1,marker0;
 
 		function changed(pos) {
 
@@ -178,9 +178,12 @@
                 position: currentPos
 			});
 
-			marker1.setMap(null);
-			marker1.setMap(map);
 
+			marker1.setMap(map);
+			var marker0 = new kakao.maps.Marker({
+                image: markerImage,
+                position: currentPos
+			});
 
 		
 		}	
