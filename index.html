@@ -170,13 +170,16 @@
 			map.panTo(currentPos);
 		
 			// 지도 이미지 갱신
+
+
 			var markerImage = new daum.maps.MarkerImage("point.png", new kakao.maps.Size(30, 30));
-			marker1.setMap(null);
 			var marker1 = new kakao.maps.Marker({
                 image: markerImage,
                 position: currentPos
 			});
 
+			marker1.setMap(null);
+			marker1.setMap(map);
 
 
 		
