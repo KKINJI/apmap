@@ -53,12 +53,10 @@
 			{ 
 				//  go(); // 모바일 
 				is_mobile = true
-
 			} 
 			else 
 			{ 
 				is_mobile = false;
-
 			} 
 
 			
@@ -164,7 +162,7 @@
         };
 
 
-		var watchID;  
+
 
 		function changed(pos) {
 
@@ -173,13 +171,13 @@
 		
 			// 지도 이미지 갱신
 			var markerImage = new daum.maps.MarkerImage("point.png", new kakao.maps.Size(20, 20));
-			var marker = new kakao.maps.Marker({
+			var marker1 = new kakao.maps.Marker({
                 image: markerImage,
                 position: currentPos
 			});
 
-			marker.setMap(null);
-  		    marker.setMap(map);
+			marker1.setMap(null);
+  		    marker1.setMap(map);
 		
 		}	
 
@@ -202,6 +200,7 @@
 						enableHighAccuracy: false,
 						timeout: 5000,
 						maximumAge: 0 };
+					var watchID;  
 
 					// changed() 콜백 함수를 등록하고, 반복 위치 서비스 시작
 					watchID = navigator.geolocation.watchPosition(changed, null, options);
@@ -209,7 +208,6 @@
 			}
 			else {
 				navigator.geolocation.clearWatch(watchID);
-				marker.setVisible(false);
 				click.className = ''; 
 			}
 				
