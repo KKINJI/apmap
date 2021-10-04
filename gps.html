@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>gps</title>
+    
+</head>
+<body>
+<!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:100%;height:100vh;"></div>
+
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=db5e240a23cac4964a755f6c22cddd21"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(36.35613994325377, 127.33330258912929), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+var marker=null;
+ function win(position) {
+
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    var myLatlng = new kakao.maps.LatLng(lat, long);
+
+    if(marker==null){
+
+        map.panTo(myLatlng);
+
+ 				// 지도 이미지 갱신
+        var markerImage = new kakao.maps.MarkerImage("point.png", new kakao.maps.Size(20, 20));
+        marker = new kakao.maps.Marker({
+					image: markerImage,
+					position: myLatlng
+				});
+        marker.setMap(map);
+    }else{
+        marker.setPosition(myLatlng);
+    }
+}
+
+var watchID = navigator.geolocation.watchPosition(win);
+</script>
+</body>
+</html>
