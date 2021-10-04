@@ -163,30 +163,30 @@
         };
 
 
-	// GPS
-		var watchID;  
-		var markerG = null;
+// GPS
+		var markerG=null;
+		var watchID;
 
 		function changed(pos) {
 
-	        var currentPos = new kakao.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
+			var myLatlng = new kakao.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
 
 			if(markerG==null){
 
-				map.panTo(currentPos);
-			
-				// 지도 이미지 갱신
-				var markerImage = new daum.maps.MarkerImage("point.png", new kakao.maps.Size(20, 20));
+				map.panTo(myLatlng);
+
+						// 지도 이미지 갱신
+				var markerImage = new kakao.maps.MarkerImage("point.png", new kakao.maps.Size(20, 20));
 				markerG = new kakao.maps.Marker({
-					image: markerImage,
-					position: currentPos
-				});
+							image: markerImage,
+							position: myLatlng
+						});
 				markerG.setMap(map);
 			}else{
-				markerG.setPosition(curretPos);
-
-			}	
+				markerG.setPosition(myLatlng);
+			}
 		}
+
 
 
 		function getCurrentPosBtn(){
