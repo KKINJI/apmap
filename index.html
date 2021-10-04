@@ -184,6 +184,7 @@
 				markerG.setMap(map);
 			}else{
 				markerG.setPosition(myLatlng);
+				map.panTo(myLatlng);
 			}
 		}
 
@@ -204,7 +205,7 @@
 				}	
 				else {
 					var options = { // watchPosition()의 마지막 매개 변수로 전달
-						enableHighAccuracy: false,
+						enableHighAccuracy: true,
 						timeout: 5000,
 						maximumAge: 0 };
 
